@@ -1,0 +1,21 @@
+<%= form_for(@question) do |f| %>
+<%= render "shared/error_messages", :target => @question %>
+
+<p>
+	<%= f.label :title, "Summary:" %>
+	<%= f.text_field :title %><%= mark_required(@question, :title)%>
+</p>
+
+
+<p>
+	<%= f.label :body, "Detailed:" %><br />
+	<%= f.text_area :body %><%= mark_required(@question, :body)%>
+</p>  
+
+
+<div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+

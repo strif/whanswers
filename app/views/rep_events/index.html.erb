@@ -1,0 +1,21 @@
+<h1>Listing rep_events</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rep_events.each do |rep_event| %>
+  <tr>
+    <td><%= link_to 'Show', rep_event %></td>
+    <td><%= link_to 'Edit', edit_rep_event_path(rep_event) %></td>
+    <td><%= link_to 'Destroy', rep_event, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Rep event', new_rep_event_path %>

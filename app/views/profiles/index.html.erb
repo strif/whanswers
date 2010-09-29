@@ -1,0 +1,18 @@
+<% unless @profile.blank? %><%= link_to 'Edit Profile', :controller => 'profiles', :action => 'edit' %><% end%>
+<%= link_to 'Change  Email & Password', :controller => 'users' , :action => 'edit' %>
+<br/>
+Username:<%= @user.username %><br />
+Member Since:<%= @user.created_at.strftime("%d %B %Y")  %><br />
+
+<% unless @profile.blank? %>
+First Name: <%= @profile.first_name %><br />
+Last Name: <%= @profile.last_name %><br /><br />
+About: <%= @profile.body %><br /><br />
+Location: <%= @profile.location %><br />
+Birthday: <%= @profile.birthday.strftime("%d %B %Y") %><br />
+<% end %>
+
+<% unless @questions.blank? %>
+<h3><%= @questions.size %>  Questions Asked:</h3>
+<%= render :partial => '/questions/question_light', :collection => @questions %>
+<% end %>

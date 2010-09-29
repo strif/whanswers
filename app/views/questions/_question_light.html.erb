@@ -1,0 +1,6 @@
+<%= div_for question_light do %>
+<%= link_to_unless_current h(question_light.title), question_light %>
+<%= time_ago_in_words(question_light.created_at) -%> ago
+<%= link_to(pluralize(question_light.answers_count,'answer'),question_light, :anchor => 'answer') unless question_light.answers_count.blank? %> 
+<% end %>
+

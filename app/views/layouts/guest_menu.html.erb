@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= @page_title%></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body>
+	<%= session[:user_id] %>
+USERS
+<%= link_to 'Register', register_url %>
+<%= link_to 'Login', login_url %>
+<%= link_to 'Logout', logout_url %>
+QnA
+<%= link_to 'Questions', :controller => 'questions' %>
+<%= link_to 'Answers',  :controller => 'questions' , :action => 'with_answers'  %>
+<%= link_to 'Answer Questions',  :controller => 'questions' , :action => 'without_answers'  %>
+<%= link_to 'Ask', :controller => 'questions' , :action => 'new' %>
+Profiles
+<%= link_to 'Profile', :controller => 'profiles' , :action => 'index' %>
+
+
+
+
+<p style="color: green"><%= notice %></p>
+
+<%= yield %>
+
+</body>
+</html>

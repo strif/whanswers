@@ -1,0 +1,17 @@
+<%= render :partial => @question %>
+<%= link_to 'Edit', :controller => 'questions', :action => 'edit' %> |
+<%= link_to 'Back',:controller => 'questions'  %>
+
+
+<h3>Answers</h3>
+<div id="answers">
+	<%= render :partial => @question.answers %>
+</div>
+
+<%= form_for [@question, Answer.new] do |f| %>
+	<p>
+		<%= f.label :body, "New Answer" %><br />
+		<%= f.text_area :body %>
+	</p>
+	<p><%= f.submit "Add Answer" %></p>
+<% end %>

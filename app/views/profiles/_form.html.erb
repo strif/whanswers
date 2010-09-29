@@ -1,0 +1,59 @@
+<%= form_for(@profile) do |f| %>
+<%= render "shared/error_messages", :target => @profile %>
+
+<p>
+	<%= f.label :first_name, "First Name:" %>
+	<%= f.text_field :first_name %><%= mark_required(@profile, :first_name)%>
+</p>
+
+
+<p>
+	<%= f.label :last_name, "Last Name:" %>
+	<%= f.text_field :last_name %><%= mark_required(@profile, :last_name)%>
+</p>  
+
+<p>
+	<%= f.label :image, "Image:" %>
+	<%= f.text_field :image %><%= mark_required(@profile, :image)%>
+</p>
+
+
+<p>
+	<%= f.label :location, "Location:" %>
+	<%= f.text_field :location %>
+</p>
+
+<p>
+
+	<%= f.label :birthday, "Birthday:" %>
+	<%= f.date_select :birthday, 
+	:default => { :day => 30, :month => 8, :year =>(Time.now.year - 30) },
+	:order => [:day, :month, :year],
+	:start_year => (Time.now.year - 120),
+	:end_year => (Time.now.year - 12)
+	%>
+</p>
+
+<p>
+<%= f.label :gender, "male" %><%= f.radio_button :gender, "male" %>
+<%= f.label :gender, "female" %><%= f.radio_button :gender, "female" %>
+</p>
+
+<p>
+	<%= f.label :hide_birthday, "Hide Age?" %>
+	<%= f.check_box :hide_birthday %><%= mark_required(@profile, :hide_birthday)%>
+</p>
+
+<p>
+	<%= f.label :body, "About you:" %><br />
+	<%= f.text_area :body %><%= mark_required(@profile, :body)%>
+</p>  
+
+
+
+<div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+

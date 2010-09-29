@@ -1,0 +1,21 @@
+<h1>Listing topic_followings</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @topic_followings.each do |topic_following| %>
+  <tr>
+    <td><%= link_to 'Show', topic_following %></td>
+    <td><%= link_to 'Edit', edit_topic_following_path(topic_following) %></td>
+    <td><%= link_to 'Destroy', topic_following, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Topic following', new_topic_following_path %>

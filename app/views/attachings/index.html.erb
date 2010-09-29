@@ -1,0 +1,21 @@
+<h1>Listing attachings</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @attachings.each do |attaching| %>
+  <tr>
+    <td><%= link_to 'Show', attaching %></td>
+    <td><%= link_to 'Edit', edit_attaching_path(attaching) %></td>
+    <td><%= link_to 'Destroy', attaching, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Attaching', new_attaching_path %>

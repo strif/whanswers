@@ -1,0 +1,9 @@
+First Name: <%= @profile.first_name %><br />
+Last Name: <%= @profile.last_name %><br /><br />
+About: <%= @profile.body %><br /><br />
+Location: <%= @profile.location %><br />
+Birthday: <%= @profile.birthday.strftime("%d %B %Y") unless @profile.hide_birthday %><br />
+
+
+
+
