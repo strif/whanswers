@@ -59,6 +59,7 @@ class AnswersController < ApplicationController
     @user = User.find(session[:user_id])
     @answer = Answer.new(params[:answer])
     @answer.created_at = Time.now
+    @answer.votes = 0
     @answer.question = @question
     @answer.user = @user
     if @answer.save

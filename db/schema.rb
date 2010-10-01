@@ -13,12 +13,11 @@
 ActiveRecord::Schema.define(:version => 20100918215858) do
 
   create_table "answers", :force => true do |t|
-    t.integer  "question_id",                                        :null => false
-    t.integer  "user_id",                                            :null => false
-    t.string   "title",       :limit => 120
-    t.text     "body",                                               :null => false
-    t.string   "status",      :limit => 12,  :default => "approved", :null => false
-    t.datetime "created_at",                                         :null => false
+    t.integer  "question_id",                                       :null => false
+    t.integer  "user_id",                                           :null => false
+    t.text     "body",                                              :null => false
+    t.string   "status",      :limit => 12, :default => "approved", :null => false
+    t.datetime "created_at",                                        :null => false
     t.float    "votes"
   end
 
@@ -76,7 +75,8 @@ ActiveRecord::Schema.define(:version => 20100918215858) do
     t.string   "image",         :limit => 300
     t.string   "location",      :limit => 50
     t.datetime "birthday"
-    t.boolean  "show_birthday",                :default => true
+    t.boolean  "hide_birthday",                :default => true
+    t.string   "gender",        :limit => 6
   end
 
   create_table "question_followings", :id => false, :force => true do |t|
@@ -98,16 +98,16 @@ ActiveRecord::Schema.define(:version => 20100918215858) do
     t.integer  "category_id"
     t.datetime "created_at",                                           :null => false
     t.string   "status",        :limit => 12,  :default => "approved", :null => false
-    t.float    "votes_counter"
+    t.float    "votes_count"
     t.integer  "answers_count"
   end
 
   create_table "rep_events", :id => false, :force => true do |t|
-    t.integer  "event_id",                                             :null => false
-    t.string   "event_type",       :limit => 12, :default => "answer", :null => false
-    t.integer  "user_id",                                              :null => false
-    t.integer  "affected_user_id",                                     :null => false
-    t.datetime "created_at",                                           :null => false
+    t.integer  "event_id",                 :null => false
+    t.string   "event_type", :limit => 12, :null => false
+    t.integer  "user_id",                  :null => false
+    t.integer  "author_id",                :null => false
+    t.datetime "created_at",               :null => false
   end
 
   create_table "settings", :id => false, :force => true do |t|

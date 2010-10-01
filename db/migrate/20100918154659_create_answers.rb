@@ -6,7 +6,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.text   "body",                         :null => false
       t.string   "status",       :limit => 12,   :null => false, :default => "approved"
       t.datetime "created_at",                   :null => false
-      t.float  "votes"
+      t.integer  "votes", :default => 0
     end
   end
 

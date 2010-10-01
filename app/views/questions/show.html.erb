@@ -5,7 +5,7 @@
 
 <h3>Answers</h3>
 <div id="answers">
-	<%= render :partial => @question.answers %>
+	<%= render :partial => @question.answers.order("votes desc,created_at asc") %>
 </div>
 
 <%= form_for [@question, Answer.new] do |f| %>
